@@ -1,0 +1,143 @@
+---
+const groups = [
+  { title: "Programming", skills: ["Python", "C", "SQL"] },
+  {
+    title: "Data & AI",
+    skills: ["Pandas", "Scikit-learn", "Machine Learning", "Data Analysis"],
+  },
+  {
+    title: "Web Technologies",
+    skills: ["React", "FastAPI", "Vite", "Tailwind CSS"],
+  },
+  {
+    title: "Computer Science",
+    skills: [
+      "Data Structures and Algorithms",
+      "DBMS",
+      "Object-Oriented Programming",
+    ],
+  },
+  { title: "Tools", skills: ["Git", "GitHub", "VS Code", "PyCharm"] },
+  {
+    title: "Productivity",
+    skills: ["Microsoft Excel", "Microsoft Word", "PowerPoint", "Canva"],
+  },
+  {
+    title: "Professional Skills",
+    skills: [
+      "Project Coordination",
+      "Leadership",
+      "Communication",
+      "Public Speaking",
+      "Team Collaboration",
+      "Problem Solving",
+      "Time Management",
+      "Adaptability",
+    ],
+  },
+];
+---
+
+<section id="skills" class="section page-shell">
+  <div class="section-heading reveal">
+    <p class="eyebrow">Tools &amp; strengths</p>
+    <h2 class="section-title">A toolkit for ideas and execution.</h2>
+    <p class="section-intro">
+      A mix of technical foundations and people-centered skills, built through
+      coursework, projects and student activities.
+    </p>
+  </div>
+
+  <div class="skill-grid reveal">
+    {
+      groups.map((group, index) => (
+        <article
+          class:list={[
+            "skill-group",
+            { "skill-group-wide": index === groups.length - 1 },
+          ]}
+        >
+          <h3>{group.title}</h3>
+          <ul>
+            {group.skills.map((skill) => (
+              <li>{skill}</li>
+            ))}
+          </ul>
+        </article>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  .skill-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: 9px;
+    background: var(--line);
+  }
+
+  .skill-group {
+    min-height: 142px;
+    padding: 22px 23px;
+    background: var(--background);
+    transition: background 180ms ease;
+  }
+
+  .skill-group:hover {
+    background: #171815;
+  }
+
+  .skill-group h3 {
+    margin: 0 0 14px;
+    color: var(--text);
+    font-size: 12px;
+    font-weight: 650;
+  }
+
+  .skill-group ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .skill-group li {
+    padding: 4px 8px;
+    border: 1px solid #ffffff0f;
+    border-radius: 4px;
+    color: var(--muted);
+    font-size: 10px;
+    line-height: 1.5;
+  }
+
+  .skill-group-wide {
+    grid-column: span 3;
+    min-height: auto;
+  }
+
+  @media (max-width: 760px) {
+    .skill-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .skill-group-wide {
+      grid-column: span 2;
+    }
+  }
+
+  @media (max-width: 440px) {
+    .skill-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .skill-group-wide {
+      grid-column: span 1;
+    }
+  }
+</style>

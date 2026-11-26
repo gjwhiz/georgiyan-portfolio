@@ -1,0 +1,171 @@
+<section id="leadership" class="section page-shell">
+  <div class="section-heading reveal">
+    <p class="eyebrow">Leadership &amp; Beyond Technology</p>
+    <h2 class="section-title">
+      Good ideas need people who can bring them together.
+    </h2>
+    <p class="section-intro">
+      College programs have been a hands-on way to practice planning, teamwork
+      and follow-through—not corporate roles, but meaningful opportunities to
+      take responsibility.
+    </p>
+  </div>
+
+  <div class="leadership-layout reveal">
+    <div class="leadership-note">
+      <span class="note-number">01 / 04</span>
+      <p>
+        From first plans to the final details, I enjoy helping a group turn an
+        idea into a shared experience.
+      </p>
+      <span class="note-mark" aria-hidden="true">GJ</span>
+    </div>
+    <ol class="highlights">
+      <li>
+        <span class="highlight-index">01</span>
+        <div>
+          <h3>Event coordination</h3>
+          <p>
+            Organized and coordinated inter-collegiate technical and cultural
+            events.
+          </p>
+        </div>
+      </li>
+      <li>
+        <span class="highlight-index">02</span>
+        <div>
+          <h3>Team leadership</h3>
+          <p>
+            Led cross-functional student teams of 10+ members during college
+            programs.
+          </p>
+        </div>
+      </li>
+      <li>
+        <span class="highlight-index">03</span>
+        <div>
+          <h3>Communication</h3>
+          <p>Delivered presentations before audiences of 200+ attendees.</p>
+        </div>
+      </li>
+      <li>
+        <span class="highlight-index">04</span>
+        <div>
+          <h3>Planning &amp; execution</h3>
+          <p>
+            Managed end-to-end event planning, including budgeting and
+            logistics.
+          </p>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<style>
+  .leadership-layout {
+    display: grid;
+    grid-template-columns: minmax(240px, 0.8fr) minmax(0, 1.2fr);
+    gap: clamp(35px, 8vw, 100px);
+  }
+
+  .leadership-note {
+    position: relative;
+    display: flex;
+    min-height: 280px;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    padding: 25px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background:
+      radial-gradient(ellipse at 82% 18%, #c6adff15, transparent 48%),
+      var(--surface);
+  }
+
+  .note-number {
+    color: var(--accent);
+    font-size: 9px;
+    font-weight: 650;
+    letter-spacing: 0.16em;
+  }
+
+  .leadership-note p {
+    position: relative;
+    z-index: 1;
+    max-width: 260px;
+    margin: 35px 0;
+    color: var(--text);
+    font-size: 19px;
+    font-weight: 500;
+    letter-spacing: -0.035em;
+    line-height: 1.5;
+  }
+
+  .note-mark {
+    position: absolute;
+    right: -9px;
+    bottom: -37px;
+    color: #ffffff08;
+    font-size: 155px;
+    font-weight: 700;
+    letter-spacing: -0.1em;
+    line-height: 1;
+  }
+
+  .highlights {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .highlights li {
+    display: grid;
+    grid-template-columns: 42px 1fr;
+    gap: 13px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .highlights li:first-child {
+    padding-top: 4px;
+  }
+
+  .highlights li:last-child {
+    border-bottom: 0;
+  }
+
+  .highlight-index {
+    padding-top: 4px;
+    color: var(--accent);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+  }
+
+  .highlights h3 {
+    margin: 0 0 5px;
+    color: var(--text);
+    font-size: 13px;
+    font-weight: 650;
+  }
+
+  .highlights p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.75;
+  }
+
+  @media (max-width: 700px) {
+    .leadership-layout {
+      grid-template-columns: 1fr;
+      gap: 25px;
+    }
+
+    .leadership-note {
+      min-height: 220px;
+    }
+  }
+</style>

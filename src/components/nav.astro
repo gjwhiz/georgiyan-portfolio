@@ -1,0 +1,152 @@
+---
+const navItems = [
+  { label: "Home", href: "#home" },
+  { label: "About", href: "#about" },
+  { label: "Work", href: "#projects" },
+  { label: "Leadership", href: "#leadership" },
+  { label: "Contact", href: "#contact" },
+];
+---
+
+<header class="site-header">
+  <a class="wordmark" href="#home" aria-label="Georgiyan Joby, home"
+    >GJ<span>.</span></a
+  >
+  <nav aria-label="Main navigation">
+    {
+      navItems.map((item, index) => (
+        <a
+          href={item.href}
+          class:list={[
+            "nav-link",
+            { "nav-contact": index === navItems.length - 1 },
+          ]}
+        >
+          {item.label}
+        </a>
+      ))
+    }
+  </nav>
+</header>
+
+<style>
+  .site-header {
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 50%;
+    display: flex;
+    width: min(calc(100% - 64px), var(--content-width));
+    height: 76px;
+    align-items: center;
+    justify-content: space-between;
+    transform: translateX(-50%);
+  }
+
+  .site-header::before {
+    position: absolute;
+    z-index: -1;
+    inset: 0 -32px;
+    border-bottom: 1px solid transparent;
+    background: linear-gradient(#111210ef, #111210c9);
+    content: "";
+    backdrop-filter: blur(14px);
+  }
+
+  .wordmark {
+    color: var(--text);
+    font-size: 20px;
+    font-weight: 750;
+    letter-spacing: -0.09em;
+    text-decoration: none;
+  }
+
+  .wordmark span {
+    color: var(--accent);
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+    gap: clamp(18px, 3vw, 36px);
+  }
+
+  .nav-link {
+    color: var(--muted);
+    font-size: 11px;
+    font-weight: 550;
+    text-decoration: none;
+    transition: color 180ms ease;
+  }
+
+  .nav-link:hover,
+  .nav-link.active {
+    color: var(--text);
+  }
+
+  .nav-contact {
+    padding: 8px 13px;
+    border: 1px solid var(--line);
+    border-radius: 5px;
+    color: var(--text);
+  }
+
+  .nav-contact:hover {
+    border-color: #c6adff70;
+  }
+
+  @media (max-width: 700px) {
+    .site-header {
+      width: calc(100% - 40px);
+      height: 66px;
+    }
+
+    .site-header::before {
+      inset-inline: -20px;
+    }
+
+    nav {
+      gap: clamp(11px, 3vw, 19px);
+    }
+
+    .nav-link {
+      font-size: 10px;
+    }
+  }
+
+  @media (max-width: 390px) {
+    .wordmark {
+      font-size: 17px;
+    }
+
+    nav {
+      gap: 9px;
+    }
+
+    .nav-link {
+      font-size: 9px;
+    }
+  }
+</style>
+
+<script>
+  const sections = document.querySelectorAll<HTMLElement>(
+    "#home, #about, #projects, #leadership, #contact",
+  );
+  const links =
+    document.querySelectorAll<HTMLAnchorElement>(".site-header nav a");
+
+  const sectionObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        links.forEach((link) => {
+          link.classList.toggle("active", link.hash === `#${entry.target.id}`);
+        });
+      });
+    },
+    { rootMargin: "-30% 0px -55% 0px" },
+  );
+
+  sections.forEach((section) => sectionObserver.observe(section));
+</script>

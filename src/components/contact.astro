@@ -1,0 +1,247 @@
+---
+const email = "georgiyanjoby75@gmail.com";
+const phone = "+91 7025405379";
+const linkedin = "https://linkedin.com/in/georgiyan-joby-b36b20281";
+---
+
+<section id="contact" class="section page-shell">
+  <div class="contact-layout">
+    <div class="contact-copy reveal">
+      <p class="eyebrow">Get in touch</p>
+      <h2 class="section-title">Have an Idea?<br />Let's Connect.</h2>
+      <p class="section-intro">
+        I'm always interested in connecting with people, exploring new
+        opportunities and discussing technology, projects and innovative ideas.
+      </p>
+      <div class="contact-details">
+        <a href={`mailto:${email}`}
+          ><span>Email</span>{email}<span aria-hidden="true">↗</span></a
+        >
+        <a href={`tel:${phone.replaceAll(" ", "")}`}
+          ><span>Phone</span>{phone}<span aria-hidden="true">↗</span></a
+        >
+        <a href={linkedin} target="_blank" rel="noopener noreferrer"
+          ><span>LinkedIn</span>Connect with me<span aria-hidden="true">↗</span
+          ></a
+        >
+      </div>
+    </div>
+
+    <div class="form-wrap reveal">
+      <p class="form-heading">Send a note</p>
+      <p class="form-hint">
+        This form opens a message in your email app; it does not store or send
+        messages from this website.
+      </p>
+      <form id="contact-form">
+        <label for="contact-name">Name</label>
+        <input
+          id="contact-name"
+          name="name"
+          type="text"
+          autocomplete="name"
+          placeholder="Your name"
+          required
+        />
+        <label for="contact-email">Email</label>
+        <input
+          id="contact-email"
+          name="email"
+          type="email"
+          autocomplete="email"
+          placeholder="you@example.com"
+          required
+        />
+        <label for="contact-message">Message</label>
+        <textarea
+          id="contact-message"
+          name="message"
+          rows="4"
+          placeholder="What would you like to talk about?"
+          required></textarea>
+        <button type="submit"
+          >Open email draft <span aria-hidden="true">↗</span></button
+        >
+        <p id="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>("#contact-form");
+  const status = document.querySelector<HTMLParagraphElement>("#form-status");
+
+  form?.addEventListener("submit", (event) => {
+    event.preventDefault();
+    if (!form.reportValidity()) return;
+
+    const formData = new FormData(form);
+    const name = String(formData.get("name") ?? "").trim();
+    const sender = String(formData.get("email") ?? "").trim();
+    const message = String(formData.get("message") ?? "").trim();
+
+    try {
+      const subject = encodeURIComponent(`Portfolio enquiry from ${name}`);
+      const body = encodeURIComponent(
+        `From: ${name} (${sender})\n\n${message}`,
+      );
+      window.location.href = `mailto:georgiyanjoby75@gmail.com?subject=${subject}&body=${body}`;
+      if (status) {
+        status.textContent =
+          "Your email app should open with the message ready. If it doesn't, email georgiyanjoby75@gmail.com directly.";
+      }
+    } catch (error) {
+      console.error("Could not prepare the email draft.", error);
+      if (status) {
+        status.textContent =
+          "Could not prepare the email draft. Please email georgiyanjoby75@gmail.com directly.";
+      }
+    }
+  });
+</script>
+
+<style>
+  .contact-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(310px, 0.8fr);
+    gap: clamp(45px, 10vw, 130px);
+  }
+
+  .contact-copy .section-title {
+    font-size: clamp(37px, 5vw, 56px);
+  }
+
+  .contact-copy .section-intro {
+    max-width: 430px;
+    font-size: 14px;
+  }
+
+  .contact-details {
+    display: grid;
+    max-width: 430px;
+    margin-top: 30px;
+  }
+
+  .contact-details a {
+    display: grid;
+    grid-template-columns: 76px 1fr 16px;
+    gap: 12px;
+    padding: 13px 0;
+    border-bottom: 1px solid var(--line);
+    color: var(--text);
+    font-size: 11px;
+    text-decoration: none;
+  }
+
+  .contact-details a > span:first-child {
+    color: var(--subtle);
+  }
+
+  .contact-details a > span:last-child {
+    color: var(--accent);
+  }
+
+  .contact-details a:hover {
+    color: var(--accent);
+  }
+
+  .form-wrap {
+    align-self: start;
+    padding: 25px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: #161714;
+  }
+
+  .form-heading {
+    margin: 0;
+    color: var(--text);
+    font-size: 15px;
+    font-weight: 650;
+  }
+
+  .form-hint {
+    margin: 6px 0 20px;
+    color: var(--subtle);
+    font-size: 10px;
+    line-height: 1.7;
+  }
+
+  form {
+    display: grid;
+    gap: 8px;
+  }
+
+  label {
+    margin-top: 8px;
+    color: var(--muted);
+    font-size: 10px;
+    font-weight: 600;
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    padding: 11px 12px;
+    border: 1px solid var(--line);
+    border-radius: 5px;
+    background: #10110f;
+    color: var(--text);
+    font-size: 11px;
+    resize: vertical;
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: #70736b;
+  }
+
+  form button {
+    display: flex;
+    min-height: 43px;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 9px;
+    padding: 0 13px;
+    border: 0;
+    border-radius: 5px;
+    background: var(--accent);
+    color: #17141e;
+    cursor: pointer;
+    font-size: 11px;
+    font-weight: 650;
+    transition: background 180ms ease;
+  }
+
+  form button:hover {
+    background: #d3c3ff;
+  }
+
+  #form-status {
+    min-height: 16px;
+    margin: 2px 0 0;
+    color: var(--muted);
+    font-size: 10px;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 760px) {
+    .contact-layout {
+      grid-template-columns: 1fr;
+      gap: 35px;
+    }
+  }
+
+  @media (max-width: 440px) {
+    .form-wrap {
+      padding: 19px;
+    }
+
+    .contact-details a {
+      grid-template-columns: 62px 1fr 16px;
+      gap: 8px;
+      font-size: 10px;
+    }
+  }
+</style>

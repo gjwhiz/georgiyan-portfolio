@@ -1,0 +1,494 @@
+---
+const projects = [
+  {
+    number: "01",
+    title: "StudyMate AI",
+    category: "AI-Powered Learning Assistant",
+    overview:
+      "An AI learning assistant with an interactive chat interface for learning support.",
+    description:
+      "Developed a full-stack AI learning assistant featuring an interactive chat interface for AI-powered learning support. Integrated the Groq LLM API with a FastAPI backend to process user queries and generate AI responses. Containerized and deployed the application using Docker and AWS Elastic Beanstalk.",
+    technologies: [
+      "React",
+      "FastAPI",
+      "Python",
+      "Groq API",
+      "Docker",
+      "AWS Elastic Beanstalk",
+    ],
+    visual: "study",
+  },
+  {
+    number: "02",
+    title: "StyleVault",
+    category: "Salon Management & Customer Profile Platform",
+    overview:
+      "A salon-focused platform concept for organizing customer profiles and personalized services.",
+    description:
+      "Worked on a salon-focused platform concept designed to organize customer profiles and support personalized salon services. Developed the frontend interface using React, Vite and Tailwind CSS, contributing to frontend component integration and UI development.",
+    technologies: ["React", "Vite", "Tailwind CSS"],
+    visual: "style",
+  },
+  {
+    number: "03",
+    title: "Machine Learning & Data Analysis",
+    category: "Machine Learning Experimentation",
+    overview:
+      "Hands-on experimentation with data preparation, classification and exploratory analysis.",
+    description:
+      "Worked on machine learning workflows involving dataset preprocessing, TF-IDF vectorization and Random Forest classification. Practiced exploratory data analysis and data visualization to examine patterns and relationships in datasets. Applied feature engineering and dataset balancing techniques during machine learning experimentation.",
+    technologies: ["Python", "Pandas", "Scikit-learn", "Matplotlib"],
+    visual: "data",
+  },
+];
+---
+
+<section id="projects" class="section page-shell">
+  <div class="section-heading reveal">
+    <p class="eyebrow">Selected work</p>
+    <h2 class="section-title">
+      Projects shaped by curiosity and practical problem-solving.
+    </h2>
+    <p class="section-intro">
+      A selection of academic and personal explorations across AI, web
+      applications and data.
+    </p>
+  </div>
+
+  <div class="project-grid">
+    {
+      projects.map((project) => (
+        <article class="project-card reveal">
+          <div
+            class:list={["project-visual", `visual-${project.visual}`]}
+            aria-label={`${project.title} screenshot placeholder`}
+          >
+            {project.visual === "study" && (
+              <div class="mock-window chat-window" aria-hidden="true">
+                <div class="mock-top">
+                  <i />
+                  <i />
+                  <i />
+                  <span>StudyMate AI</span>
+                </div>
+                <div class="chat-lines">
+                  <b />
+                  <span />
+                  <span />
+                  <b />
+                  <span />
+                </div>
+                <div class="mock-input">
+                  Ask anything… <i>↗</i>
+                </div>
+              </div>
+            )}
+            {project.visual === "style" && (
+              <div class="mock-window profile-window" aria-hidden="true">
+                <div class="mock-top">
+                  <i />
+                  <i />
+                  <i />
+                  <span>StyleVault</span>
+                </div>
+                <div class="profile-content">
+                  <b />
+                  <div>
+                    <span />
+                    <span />
+                  </div>
+                </div>
+                <div class="profile-lines">
+                  <span />
+                  <span />
+                  <span />
+                </div>
+              </div>
+            )}
+            {project.visual === "data" && (
+              <div class="mock-window chart-window" aria-hidden="true">
+                <div class="mock-top">
+                  <i />
+                  <i />
+                  <i />
+                  <span>Data exploration</span>
+                </div>
+                <div class="chart-bars">
+                  <i />
+                  <i />
+                  <i />
+                  <i />
+                  <i />
+                  <i />
+                  <i />
+                </div>
+                <div class="chart-caption">
+                  <span />
+                  <span />
+                  <span />
+                </div>
+              </div>
+            )}
+            <span class="placeholder-label">
+              Visual preview · replace with project screenshot
+            </span>
+          </div>
+          <div class="project-content">
+            <div class="project-meta">
+              <>
+                <span>{project.category}</span>
+                <span>{project.number}</span>
+              </>
+            </div>
+            <h3>{project.title}</h3>
+            <p class="project-overview">{project.overview}</p>
+            <ul class="technology-list" aria-label="Technologies">
+              {project.technologies.map((technology) => (
+                <li>{technology}</li>
+              ))}
+            </ul>
+            <details class="project-details">
+              <summary>
+                <>
+                  <span>View project</span>
+                  <span class="details-icon" aria-hidden="true">
+                    +
+                  </span>
+                </>
+              </summary>
+              <div class="project-description">
+                <p>{project.description}</p>
+                <p class="links-note">
+                  Project links can be added when GitHub or live demo URLs are
+                  available.
+                </p>
+              </div>
+            </details>
+          </div>
+        </article>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .project-card {
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: #151612;
+    transition:
+      border-color 200ms ease,
+      transform 200ms ease;
+  }
+
+  .project-card:hover {
+    transform: translateY(-3px);
+    border-color: #c6adff42;
+  }
+
+  .project-visual {
+    position: relative;
+    display: grid;
+    min-height: 225px;
+    overflow: hidden;
+    place-items: center;
+    border-bottom: 1px solid var(--line);
+    background:
+      radial-gradient(ellipse at 50% 35%, #c6adff10, transparent 63%), #191a17;
+  }
+
+  .visual-style {
+    background:
+      radial-gradient(ellipse at 50% 35%, #c7d7a20e, transparent 63%), #191a17;
+  }
+
+  .visual-data {
+    background:
+      radial-gradient(ellipse at 50% 35%, #90b8ce10, transparent 63%), #191a17;
+  }
+
+  .mock-window {
+    width: min(74%, 290px);
+    min-height: 140px;
+    padding: 10px 12px;
+    border: 1px solid #ffffff20;
+    border-radius: 7px;
+    background: #20211d;
+    box-shadow: 0 16px 40px #00000030;
+    transform: perspective(800px) rotateX(3deg);
+  }
+
+  .mock-top {
+    display: flex;
+    height: 15px;
+    align-items: center;
+    gap: 4px;
+    border-bottom: 1px solid #ffffff0e;
+    color: #777a72;
+    font-size: 6px;
+  }
+
+  .mock-top i {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #77786f;
+  }
+
+  .mock-top span {
+    margin-left: 7px;
+  }
+
+  .chat-lines {
+    display: grid;
+    width: 85%;
+    grid-template-columns: 1fr;
+    gap: 7px;
+    margin: 18px auto 12px;
+  }
+
+  .chat-lines b,
+  .chat-lines span,
+  .profile-lines span {
+    height: 5px;
+    border-radius: 4px;
+    background: #ffffff19;
+  }
+
+  .chat-lines b {
+    width: 47%;
+    background: #c6adff55;
+  }
+
+  .chat-lines span:nth-child(3),
+  .chat-lines span:nth-child(5) {
+    width: 68%;
+  }
+
+  .mock-input {
+    display: flex;
+    height: 23px;
+    align-items: center;
+    justify-content: space-between;
+    padding-inline: 8px;
+    border: 1px solid #ffffff15;
+    border-radius: 4px;
+    color: #777a72;
+    font-size: 6px;
+  }
+
+  .mock-input i {
+    color: var(--accent);
+    font-style: normal;
+  }
+
+  .profile-content {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    margin: 19px 8px 13px;
+  }
+
+  .profile-content b {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #c7d7a24f, #8b937b22);
+  }
+
+  .profile-content div {
+    display: grid;
+    width: 55%;
+    gap: 6px;
+  }
+
+  .profile-content span,
+  .chart-caption span {
+    height: 5px;
+    border-radius: 3px;
+    background: #ffffff21;
+  }
+
+  .profile-content span:last-child {
+    width: 60%;
+    background: #c7d7a235;
+  }
+
+  .profile-lines {
+    display: grid;
+    gap: 6px;
+    margin-inline: 8px;
+  }
+
+  .profile-lines span:nth-child(2) {
+    width: 80%;
+  }
+
+  .chart-bars {
+    display: flex;
+    height: 82px;
+    align-items: end;
+    justify-content: center;
+    gap: 9px;
+    margin: 13px 10px 7px;
+    border-bottom: 1px solid #ffffff18;
+  }
+
+  .chart-bars i {
+    width: 10px;
+    height: 43%;
+    border-radius: 3px 3px 0 0;
+    background: #90b8ce62;
+  }
+
+  .chart-bars i:nth-child(2),
+  .chart-bars i:nth-child(5) {
+    height: 75%;
+  }
+
+  .chart-bars i:nth-child(3),
+  .chart-bars i:nth-child(7) {
+    height: 59%;
+    background: #c6adff58;
+  }
+
+  .chart-bars i:nth-child(4) {
+    height: 90%;
+  }
+
+  .chart-caption {
+    display: flex;
+    gap: 6px;
+    margin-inline: 10px;
+  }
+
+  .chart-caption span {
+    width: 25%;
+    height: 3px;
+  }
+
+  .placeholder-label {
+    position: absolute;
+    right: 12px;
+    bottom: 10px;
+    color: #777a72;
+    font-size: 8px;
+    letter-spacing: 0.02em;
+  }
+
+  .project-content {
+    padding: 20px 21px 18px;
+  }
+
+  .project-meta {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    color: var(--accent);
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .project-meta span:last-child {
+    color: var(--subtle);
+  }
+
+  .project-content h3 {
+    margin: 10px 0 8px;
+    color: var(--text);
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: -0.035em;
+    line-height: 1.35;
+  }
+
+  .project-overview {
+    min-height: 48px;
+    margin: 0;
+    color: var(--muted);
+    font-size: 11px;
+    line-height: 1.75;
+  }
+
+  .technology-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 15px 0 17px;
+    padding: 0;
+    list-style: none;
+  }
+
+  .technology-list li {
+    padding: 4px 7px;
+    border: 1px solid #ffffff12;
+    border-radius: 4px;
+    color: #b6b8b0;
+    font-size: 9px;
+  }
+
+  .project-details {
+    border-top: 1px solid var(--line);
+  }
+
+  .project-details summary {
+    display: flex;
+    min-height: 43px;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--text);
+    cursor: pointer;
+    font-size: 11px;
+    font-weight: 600;
+    list-style: none;
+  }
+
+  .project-details summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .details-icon {
+    color: var(--accent);
+    font-size: 18px;
+    font-weight: 400;
+    transition: transform 180ms ease;
+  }
+
+  .project-details[open] .details-icon {
+    transform: rotate(45deg);
+  }
+
+  .project-description p {
+    margin: 0 0 10px;
+    color: var(--muted);
+    font-size: 11px;
+    line-height: 1.8;
+  }
+
+  .project-description .links-note {
+    margin: 0 0 14px;
+    color: var(--subtle);
+    font-size: 10px;
+    font-style: italic;
+  }
+
+  @media (max-width: 700px) {
+    .project-grid {
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    .project-visual {
+      min-height: 210px;
+    }
+  }
+</style>

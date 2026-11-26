@@ -1,0 +1,114 @@
+<section id="about" class="section page-shell">
+  <div class="section-heading reveal">
+    <p class="eyebrow">A little about me</p>
+    <h2 class="section-title">
+      Technology is most meaningful when it helps people move forward.
+    </h2>
+  </div>
+
+  <div class="about-grid reveal">
+    <div class="about-copy">
+      <p>
+        I'm a technology enthusiast with an interest in how technology and
+        business come together to create practical solutions.
+      </p>
+      <p>
+        My experience spans academic projects, AI-powered applications, data
+        analysis and collaborative event management. Beyond technical
+        development, I enjoy planning, organizing, coordinating people and
+        ensuring that ideas move towards execution.
+      </p>
+      <p>
+        Through academic projects and leadership activities, I've developed an
+        appreciation for structured problem-solving, teamwork and effective
+        communication.
+      </p>
+      <p>
+        I'm currently exploring opportunities in project management, business
+        operations, business analysis and technology-driven environments where I
+        can contribute, learn and grow.
+      </p>
+    </div>
+    <aside class="about-focus">
+      <p class="focus-label">Areas I'm curious about</p>
+      <ul>
+        <li>Project &amp; product management</li>
+        <li>Business operations &amp; analysis</li>
+        <li>Artificial intelligence &amp; data</li>
+        <li>IT service management</li>
+        <li>Technology-driven problem solving</li>
+      </ul>
+      <a href="#skills">Explore my toolkit <span aria-hidden="true">↓</span></a>
+    </aside>
+  </div>
+</section>
+
+<style>
+  .about-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.45fr) minmax(250px, 0.75fr);
+    gap: clamp(40px, 8vw, 110px);
+  }
+
+  .about-copy p {
+    margin: 0 0 18px;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.9;
+  }
+
+  .about-copy p:last-child {
+    margin-bottom: 0;
+  }
+
+  .about-focus {
+    align-self: start;
+    padding: 23px 0 0 22px;
+    border-left: 1px solid #c6adff54;
+  }
+
+  .focus-label {
+    margin: 0 0 18px;
+    color: var(--text);
+    font-size: 12px;
+    font-weight: 650;
+  }
+
+  .about-focus ul {
+    display: grid;
+    gap: 13px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .about-focus li {
+    color: var(--muted);
+    font-size: 12px;
+  }
+
+  .about-focus li::before {
+    margin-right: 10px;
+    color: var(--accent);
+    content: "—";
+  }
+
+  .about-focus a {
+    display: inline-block;
+    margin-top: 24px;
+    color: var(--accent);
+    font-size: 11px;
+    text-decoration: none;
+  }
+
+  .about-focus a span {
+    margin-left: 6px;
+  }
+
+  @media (max-width: 700px) {
+    .about-grid {
+      grid-template-columns: 1fr;
+      gap: 34px;
+    }
+  }
+</style>

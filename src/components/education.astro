@@ -1,0 +1,107 @@
+<section id="education" class="section page-shell">
+  <div class="section-heading reveal">
+    <p class="eyebrow">Education</p>
+    <h2 class="section-title">Building a strong foundation.</h2>
+  </div>
+
+  <article class="education-card reveal">
+    <div class="education-monogram" aria-hidden="true">BCA</div>
+    <div class="education-details">
+      <p class="education-status">THIRD YEAR <span>·</span> EXPECTED 2027</p>
+      <h3>Bachelor of Computer Applications</h3>
+      <p class="institution">Girideepam Institute of Advanced Learning</p>
+      <p class="university">
+        Mahatma Gandhi University <span>·</span> Kochi, Kerala, India
+      </p>
+    </div>
+    <span class="education-date">2027</span>
+  </article>
+</section>
+
+<style>
+  .education-card {
+    display: grid;
+    grid-template-columns: 72px 1fr auto;
+    align-items: center;
+    gap: 22px;
+    padding: 28px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: linear-gradient(110deg, #1a1b18, #141512);
+  }
+
+  .education-monogram {
+    display: grid;
+    width: 66px;
+    height: 66px;
+    place-items: center;
+    border: 1px solid #c6adff35;
+    border-radius: 50%;
+    background: var(--accent-soft);
+    color: var(--accent);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+  }
+
+  .education-status {
+    margin: 0 0 9px;
+    color: var(--accent);
+    font-size: 9px;
+    font-weight: 650;
+    letter-spacing: 0.13em;
+  }
+
+  .education-status span,
+  .university span {
+    margin-inline: 5px;
+  }
+
+  .education-details h3 {
+    margin: 0;
+    color: var(--text);
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+  }
+
+  .institution {
+    margin: 5px 0 0;
+    color: var(--muted);
+    font-size: 13px;
+  }
+
+  .university {
+    margin: 4px 0 0;
+    color: var(--subtle);
+    font-size: 11px;
+  }
+
+  .education-date {
+    color: var(--subtle);
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  @media (max-width: 560px) {
+    .education-card {
+      grid-template-columns: 52px 1fr;
+      gap: 16px;
+      padding: 19px;
+    }
+
+    .education-monogram {
+      width: 50px;
+      height: 50px;
+      font-size: 10px;
+    }
+
+    .education-details h3 {
+      font-size: 15px;
+    }
+
+    .education-date {
+      display: none;
+    }
+  }
+</style>
